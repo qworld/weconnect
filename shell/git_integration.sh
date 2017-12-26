@@ -1,7 +1,8 @@
 #! /bin/bash
 
+cd /var/www/weconnect/
 git clean -f
-git pull origin master
+git pull bitbucket master
 yarn install
-yarn run test
-yarn run prd
+#yarn run test
+#yarn run prd
