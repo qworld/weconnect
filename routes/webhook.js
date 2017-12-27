@@ -14,7 +14,7 @@ const rumCommand = (cmd, args, callback) => {
     child.stdout.on('end', () => callback(response))
 }
 
-router.get('/:token', function (ctx, next) {
+router.post('/:token', function (ctx, next) {
     const token = ctx.params.token;
     console.log('url: ' + ctx.url + '\r\n' + 'token: ' + token);
     if(token == 'x2nzp6hw'){
