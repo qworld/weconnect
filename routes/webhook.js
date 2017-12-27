@@ -5,6 +5,8 @@ const { spawn } = require('child_process');
 
 router.prefix('/integration');
 
+
+
 const rumCommand = (cmd, args, callback) => {
     const child = spawn(cmd, args)
     let response = ''
@@ -12,20 +14,20 @@ const rumCommand = (cmd, args, callback) => {
     child.stdout.on('end', () => callback(response))
 }
 
-router.get('/', function (ctx, next) {
-    ctx.body = 'coming soon'
+router.get('/:token', function (ctx, next) {
+    const token = ctx.params.token;
+    console.log('url: ' + ctx.url + '\r\n' + 'token: ' + token);
+    if(token == 'x2nzp6hw'){
+        rumCommand('sh', ['./shell/git_integration.sh'], txt => {
+            console.log(txt)
+            });
+        return ctx.render('webhook', {
+            title: 'webhook',
+            message: 'request accepted'
+        });
+    }
+    ctx.body = 'coming soon';
 });
 
-router.get('/x2nzp6hw', function (ctx, next) {
-    //ctx.body = 'request accepted';
-    rumCommand('sh', ['./shell/git_integration.sh'], txt => {
-    console.log(txt)
-    });
-    return ctx.render('webhook', {
-        title: 'webhook',
-        message: 'request accepted'
-  });
-  
-});
 
 module.exports = router;
