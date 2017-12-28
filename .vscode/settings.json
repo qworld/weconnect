@@ -1,2 +1,4 @@
 {
+  // Controls whether eslint is disabled for JavaScript files or not.
+  "eslint.enable": false,
 }

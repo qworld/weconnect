@@ -9,7 +9,7 @@ const exeCmd = (command = '') =>{
     if(!command){
         return false;
     }
-    // 
+    //use default options
     const options = {
         encoding: 'utf8',
         timeout: 0,
@@ -29,17 +29,22 @@ const exeCmd = (command = '') =>{
 }
 
 //execute git command for code integration
-const git_integrate = (ctx) => {
+const git_integrate = () => {
+    let cmd = "cd /var/www/weconnect/ "
+            + " && git clean -f "
+            + " && git pull bitbucket master "
+            + " && yarn install ";
+    //execute command
+    //exeCmd(cmd);
+}
+
+//do integration by GET request
+router.all('/:token', function (ctx, next) {
     const token = ctx.params.token;
     console.log('url: ' + ctx.url + '\r\n' + 'token: ' + token);
     //check url parameter
     if(token == 'x2nzp6hw'){
-        let cmd = "cd /var/www/weconnect/ "
-                + " && git clean -f "
-                + " && git pull bitbucket master "
-                + " && yarn install ";
-        //execute command
-        exeCmd(cmd);
+        git_integrate();
         //display message 
         return ctx.render('webhook', {
             title: 'webhook',
@@ -47,16 +52,7 @@ const git_integrate = (ctx) => {
         });
     }
     ctx.body = 'coming soon';
-}
-
-//do integration by GET request
-router.get('/:token', function (ctx, next) {
-    git_integrate(ctx);
 });
 
-//do integration by POST request
-router.post('/:token', function (ctx, next) {
-    git_integrate(ctx);
-});
 
 module.exports = router;

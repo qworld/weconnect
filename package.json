@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "debug": "latest",
+    "eslint": "^4.14.0",
     "koa": "latest",
     "koa-bodyparser": "latest",
     "koa-json": "latest",
@@ -22,6 +23,7 @@
     "nunjucks": "latest"
   },
   "devDependencies": {
+    "eslint-config-google": "^0.9.1",
     "nodemon": "latest"
   }
 }
