@@ -38,7 +38,7 @@ const git_integrate = () => {
     exeCmd(cmd);
 }
 
-//do integration by GET request
+//do integration by request，support all methods, like GET & POST
 router.all('/:token', function (ctx, next) {
     const token = ctx.params.token;
     console.log('url: ' + ctx.url + '\r\n' + 'token: ' + token);
