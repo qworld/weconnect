@@ -33,12 +33,13 @@ const git_integrate = () => {
     let cmd = "cd /var/www/weconnect/ "
             + " && git clean -f "
             + " && git pull bitbucket master "
+            + " && chown www-data:www-data -R /var/www/weconnect/ "
             + " && yarn install ";
     //execute command
     exeCmd(cmd);
 }
 
-//do integration by request，support all methods, like GET & POST
+//do integration by request, support all methods, like GET & POST
 router.all('/:token', function (ctx, next) {
     const token = ctx.params.token;
     console.log('url: ' + ctx.url + '\r\n' + 'token: ' + token);
