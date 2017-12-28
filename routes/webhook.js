@@ -35,7 +35,7 @@ const git_integrate = () => {
             + " && git pull bitbucket master "
             + " && yarn install ";
     //execute command
-    //exeCmd(cmd);
+    exeCmd(cmd);
 }
 
 //do integration by GET request
