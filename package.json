@@ -18,12 +18,13 @@
     "koa-onerror": "latest",
     "koa-route": "latest",
     "koa-router": "latest",
-    "koa-static": "^4.0.2",
-    "koa-views": "^6.1.3",
+    "koa-static": "latest",
+    "koa-views": "latest",
+    "mongoose": "latest",
+    "monk": "latest",
     "nunjucks": "latest"
   },
   "devDependencies": {
-    "eslint-config-google": "^0.9.1",
     "nodemon": "latest"
   }
 }

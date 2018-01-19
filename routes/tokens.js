@@ -1,12 +1,12 @@
 const router = require('koa-router')();
 
-router.prefix('/users');
+router.prefix('/tokens');
 
 router.get('/', function (ctx, next) {
-  ctx.body = 'this is a users response!';
+  ctx.body = 'this is a token response!';
 });
 
-router.get('/bar', function (ctx, next) {
+router.get('/get', function (ctx, next) {
   ctx.body = 'this is a users/bar response';
 });
 
