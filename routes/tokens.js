@@ -12,14 +12,20 @@ router.get('/', function (ctx, next) {
 
 router.get('/get', function (ctx, next) {
     let domain = 'api.weixin.qq.com';
-    let path = '/cgi-bin/token?grant_type=client_credential';
-    let requestPath = path + "&appid=" + "wx90bbba88d31e8381";
-    requestPath += "&secret=" + "63b3a9188d3dfb3acf5c63c28ec1b05ß";
+    let path = '/cgi-bin/token?';
+    //let requestPath = path + "&appid=" + "wx90bbba88d31e8381";
+    //requestPath += "&secret=" + "63b3a9188d3dfb3acf5c63c28ec1b05ß";
+
+    let requestPath = path + querystring.stringfy( {
+        grant_type: 'client_credential',
+        appid: 'wx90bbba88d31e8381',
+        secret: '63b3a9188d3dfb3acf5c63c28ec1b05ß'
+    } );
 
     const options = {
         hostname: domain,
         port: 443,
-        path: path,
+        path: requestPath,
         method: 'GET'
       };
       

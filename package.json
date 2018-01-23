@@ -22,7 +22,8 @@
     "koa-views": "latest",
     "mongoose": "latest",
     "monk": "latest",
-    "nunjucks": "latest"
+    "nunjucks": "latest",
+    "axios": "latest"
   },
   "devDependencies": {
     "nodemon": "latest"
