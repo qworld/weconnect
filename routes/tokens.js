@@ -1,7 +1,7 @@
 const router = require('koa-router')();
 const https = require('https');
 //official url for get token: https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=APPID&secret=APPSECRET";
-const baseUrl = "https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential";
+const baseUrl = "https://api.weixin.qq.com/cgi-bin/token?";
 
 
 router.prefix('/tokens');
@@ -19,7 +19,7 @@ router.get('/get', function (ctx, next) {
     let requestPath = path + querystring.stringfy( {
         grant_type: 'client_credential',
         appid: 'wx90bbba88d31e8381',
-        secret: '63b3a9188d3dfb3acf5c63c28ec1b05ß'
+        secret: '63b3a9188d3dfb3acf5c63c28ec1b050'
     } );
 
     const options = {

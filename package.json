@@ -23,7 +23,7 @@
     "mongoose": "latest",
     "monk": "latest",
     "nunjucks": "latest",
-    "axios": "latest"
+    "r2": "latest"
   },
   "devDependencies": {
     "nodemon": "latest"

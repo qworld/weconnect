@@ -1,5 +1,3 @@
-import { isNullOrUndefined } from 'util';
-
 const monk = require('../lib/data_monk');
 
 const collection = monk.get('access_token');
