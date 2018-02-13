@@ -10,8 +10,8 @@
   },
   "dependencies": {
     "debug": "latest",
-    "eslint": "^4.14.0",
-    "koa": "latest",
+    "eslint": "latest",
+    "koa": "^2.5.0",
     "koa-bodyparser": "latest",
     "koa-json": "latest",
     "koa-logger": "latest",
@@ -20,7 +20,7 @@
     "koa-router": "latest",
     "koa-static": "latest",
     "koa-views": "latest",
-    "mongoose": "latest",
+    "mongoose": "^5.0.4",
     "monk": "latest",
     "nunjucks": "latest",
     "r2": "latest"

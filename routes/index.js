@@ -1,11 +1,8 @@
 const router = require('koa-router')();
-const tokenMgr = require('../lib/tokenMgr');
 
 router.get('/', async (ctx, next) => {
-  var token = await tokenMgr.getAccessToken();
   await ctx.render('index', {
-    title: 'Hello Koa 2!',
-    data: token
+    title: 'Hello Koa 2!'
   })
 });
 
