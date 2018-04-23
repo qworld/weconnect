@@ -23,7 +23,10 @@
     "mongoose": "latest",
     "monk": "latest",
     "nunjucks": "latest",
-    "r2": "latest"
+    "r2": "latest",
+    "weconnect_api": "latest",
+    "co-wechat-api": "latest",
+    "mongodb": "latest"
   },
   "devDependencies": {
     "nodemon": "latest"
