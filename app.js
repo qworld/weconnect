@@ -5,7 +5,6 @@ const json = require('koa-json');
 const onerror = require('koa-onerror');
 const bodyparser = require('koa-bodyparser');
 const logger = require('koa-logger');
-//const mongoose = require('./mongoDB');
 const index = require('./routes/index');
 const tokens = require('./routes/tokens');
 const users = require('./routes/users');
@@ -40,19 +39,6 @@ app.use(async (ctx, next) => {
   console.log(`${ctx.method} ${ctx.url} - ${ms}ms`);
 });
 
-
-const mongoose = require('mongoose');
-const uri = 'mongodb://localhost/weconnect';
-const options = { dbName:'weconnect', poolSize:10, autoReconnect:true };
-
-mongoose.connect(uri, options, function(error) {
-    // Check error in initial connection. There is no 2nd param to the callback.
-    if(error){
-      console.log("failed to connect to mongodb");
-      console.log(error);
-    }
-});
-//console.log( mongoose.connection );
 
 /*
 var MongoClient = require('mongodb').MongoClient
