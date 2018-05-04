@@ -1,4 +1,15 @@
 {
   // Controls whether eslint is disabled for JavaScript files or not.
   "eslint.enable": false,
+  // 配置 glob 模式以在搜索中排除文件和文件夹。从 files.exclude 设置中继承所有 glob 模式。
+  "search.exclude": {
+    "**/node_modules": false,
+    "**/bower_components": true
+  },
+  // 配置文件路径的 glob 模式以从文件监视排除。模式必须在绝对路径上匹配(例如 ** 前缀或完整路径需正确匹配)。更改此设置需要重启。如果在启动时遇到 Code 消耗大量 CPU 时间，则可以排除大型文件夹以减少初始加载。
+  "files.watcherExclude": {
+    "**/.git/objects/**": true,
+    "**/.git/subtree-cache/**": true,
+    "**/node_modules/**": false
+  }
 }

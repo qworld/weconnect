@@ -24,9 +24,7 @@
     "monk": "latest",
     "nunjucks": "latest",
     "r2": "latest",
-    "weconnect_api": "latest",
-    "co-wechat-api": "latest",
-    "mongodb": "latest"
+    "co-wechat-api": "latest"
   },
   "devDependencies": {
     "nodemon": "latest"
