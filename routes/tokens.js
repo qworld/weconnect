@@ -14,7 +14,7 @@ router.get('/', async function (ctx, next) {
 
 router.get('/get', async function (ctx, next) {
     //console.log('token');
-    let token = await core.accessToken.getAccessToken();
+    let token = await core.accessToken.getAccessToken(core.appid, core.secret);
 
     await ctx.render('common_response', {
         title: 'get token!',
@@ -23,18 +23,16 @@ router.get('/get', async function (ctx, next) {
 });
 
 router.get('/testcache', async function (ctx, next) {
-    /*
-    let msg = await core.fileCache.add("appid_123", {
-        "token":"this is a new example, set access token here", 
-        "expires_in":7200,
-        "expires_time_ms":88888888, 
-        "request_time":"2018/03/01 12:15:00", 
-        "expires_time":"2018/03/01 14:00:00"
-    }, 7200);
-    ctx.body = 'the path is : ' + msg;
-    */
     let msg = await core.fileCache.get("appid_123");
     ctx.body = 'the path is : ' + JSON.stringify(msg);
+});
+
+router.get('/testmenu', async function (ctx, next) {
+    const obj = require('/Users/quan/Dev/nodejs/weconnect_core');
+    console.log("this is a " + typeof obj);
+    for(var key in obj){
+        console("obj's key is " + key);
+    }
 });
 
 module.exports = router;

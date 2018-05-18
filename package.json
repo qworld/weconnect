@@ -9,6 +9,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
+    "co-wechat-api": "latest",
     "debug": "latest",
     "eslint": "latest",
     "koa": "latest",
@@ -18,13 +19,12 @@
     "koa-onerror": "latest",
     "koa-route": "latest",
     "koa-router": "latest",
-    "koa-static": "latest",
+    "koa-static": "^4.0.3",
     "koa-views": "latest",
-    "mongoose": "latest",
-    "monk": "latest",
+    "mongoose": "^5.1.1",
+    "monk": "^6.0.6",
     "nunjucks": "latest",
-    "r2": "latest",
-    "co-wechat-api": "latest"
+    "r2": "latest"
   },
   "devDependencies": {
     "nodemon": "latest"
