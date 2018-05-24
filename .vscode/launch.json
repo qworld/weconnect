@@ -7,14 +7,47 @@
         {
             "type": "node",
             "request": "attach",
+            "protocol": "inspector",
             "name": "Attach",
-            "port": 3000
+            "smartStep": true,
+            "port": 3000,
+            "skipFiles": [
+                "${workspaceFolder}/node_modules/**/*.js",
+                "<node_internals>/**/*.js"
+            ]
         },
         {
             "type": "node",
             "request": "launch",
+            "protocol": "inspector",
             "name": "启动程序",
-            "program": "${workspaceFolder}/bin/www"
+            "smartStep": false,
+            "program": "${workspaceFolder}/bin/www",
+            "skipFiles": [
+                "${workspaceFolder}/node_modules/**/*.js",
+                "<node_internals>/**/*.js"
+            ]
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "nodemon",
+            "runtimeExecutable": "nodemon",
+            "program": "${workspaceFolder}/app.js",
+            "restart": true,
+            "console": "integratedTerminal",
+            "internalConsoleOptions": "neverOpen"
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Launch via NPM",
+            "runtimeExecutable": "npm",
+            "runtimeArgs": [
+                "run-script",
+                "debug"
+            ],
+            "port": 9239
         }
     ]
 }

@@ -6,7 +6,8 @@
     "start": "node bin/www",
     "dev": "nodemon bin/www",
     "prd": "pm2 start bin/www --name='weconnect' --watch",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "debug": "node --nolazy --inspect-brk=9239 bin/www"
   },
   "dependencies": {
     "co-wechat-api": "latest",
