@@ -68,4 +68,9 @@ app.on('error', (err, ctx) => {
   console.error('server error', err, ctx)
 });
 
+app.on('unhandledRejection', (reason, p) => {
+  console.log('Unhandled Rejection at:', p, 'reason:', reason);
+  // application specific logging, throwing an error, or other logic here
+});
+
 module.exports = app;

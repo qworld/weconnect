@@ -6,6 +6,7 @@
                 {
                     "type": "view", 
                     "name": "浏览", 
+                    "url": "http://m.jsj.com.cn",
                     "key": "menu_1_1"
                 }, 
                 {
@@ -16,7 +17,7 @@
             ]
         }, 
         {
-            "name": "发图", 
+            "name": "发图片", 
             "sub_button": [
                 {
                     "type": "pic_sysphoto", 

@@ -62,7 +62,14 @@ router.get('/testmenu', async function (ctx, next) {
     let menu = await utils.file.read(global.AppRoot + "/configs/menu_list.json");
     //let res = core.menu.addGeneralMenu(menu);
     let menuMgr = core.menu;
-    let res = await menuMgr.addGeneralMenu(menu);
+    let res = await menuMgr.addMenu(menu);
+    ctx.body = 'the result is : ' + JSON.stringify(res);
+});
+
+router.get('/getmenu', async function (ctx, next) {
+    let menuMgr = core.menu;
+    //menuMgr.getRequestUrl("head", "12345"); 
+    let res = await menuMgr.getMenu();
     ctx.body = 'the result is : ' + JSON.stringify(res);
 });
 
