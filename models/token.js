@@ -2,7 +2,6 @@
 
 // operations of wechat's token
 const querystring = require('querystring');
-const r2 = require('r2');
 const mongoose = require('../lib/mongoDB');
 
 const tokenUri = "https://api.weixin.qq.com/cgi-bin/token?";

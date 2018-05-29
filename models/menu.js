@@ -1,7 +1,6 @@
 // operations of menu
 const querystring = require("querystring");
 const fs = require("fs");
-const r2 = require('r2');
 const tokenMgr = require('../models/token');
 const requestUrl = 'https://api.weixin.qq.com/cgi-bin/menu/create?access_token=';
 //const monk = require('../lib/data_monk');

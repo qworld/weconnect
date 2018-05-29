@@ -69,8 +69,16 @@ router.get('/testmenu', async function (ctx, next) {
 router.get('/getmenu', async function (ctx, next) {
     let menuMgr = core.menu;
     //menuMgr.getRequestUrl("head", "12345"); 
-    let res = await menuMgr.getMenu();
+    let res = await menuMgr.getCurrentMenuInfo();
     ctx.body = 'the result is : ' + JSON.stringify(res);
+});
+
+router.get('/testxml', async function (ctx, next) {
+    let str = "<xml>  <ToUserName>< ![CDATA[toUser] ]></ToUserName>  <FromUserName>< ![CDATA[fromUser] ]></FromUserName>  <CreateTime>1348831860</CreateTime>  <MsgType>< ![CDATA[text] ]></MsgType>  <Content>< ![CDATA[this is a test] ]></Content>  <MsgId>1234567890123456</MsgId>  </xml>";
+    const parser = new DOMParser();
+    let doc = parser.parseFromString(str, "application/xml");
+
+    ctx.body = doc;
 });
 
 module.exports = router;

@@ -20,12 +20,10 @@
     "koa-onerror": "latest",
     "koa-route": "latest",
     "koa-router": "latest",
-    "koa-static": "^4.0.3",
+    "koa-static": "latest",
     "koa-views": "latest",
-    "mongoose": "^5.1.2",
-    "monk": "^6.0.6",
-    "nunjucks": "latest",
-    "r2": "latest"
+    "mongoose": "latest",
+    "nunjucks": "latest"
   },
   "devDependencies": {
     "nodemon": "latest"
