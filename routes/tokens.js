@@ -36,6 +36,22 @@ class m extends z{
 }
 */
 
+function abx(data){
+    console.log("daaa");
+    yzx(data);
+    return "data is omit";
+}
+
+function yzx(data){
+    console.log("yzx");
+    if(data){
+        console.log("data appears");
+    } else{
+        console.log("data disappears");
+    }
+    return "this is yzx";
+}
+
 router.get('/', async function (ctx, next) {
     let msg = await core.utils.validator.isObj({"a":133});
     ctx.body = 'this is a token response: ' + msg;
@@ -52,7 +68,8 @@ router.get('/get', async function (ctx, next) {
 });
 
 router.get('/testcache', async function (ctx, next) {
-    let msg = await core.fileCache.get("appid_123");
+    //let msg = await core.fileCache.get("appid_123");
+    let msg = abx();
     ctx.body = 'the path is : ' + JSON.stringify(msg);
 });
 
