@@ -53,7 +53,7 @@ function yzx(data){
 }
 
 router.get('/', async function (ctx, next) {
-    let msg = await core.utils.validator.isObj({"a":133});
+    let msg = core.utils.validator.isObj({"a":133});
     ctx.body = 'this is a token response: ' + msg;
 });
 
@@ -91,11 +91,14 @@ router.get('/getmenu', async function (ctx, next) {
 });
 
 router.get('/testxml', async function (ctx, next) {
-    let str = "<xml>  <ToUserName>< ![CDATA[toUser] ]></ToUserName>  <FromUserName>< ![CDATA[fromUser] ]></FromUserName>  <CreateTime>1348831860</CreateTime>  <MsgType>< ![CDATA[text] ]></MsgType>  <Content>< ![CDATA[this is a test] ]></Content>  <MsgId>1234567890123456</MsgId>  </xml>";
-    const parser = new DOMParser();
-    let doc = parser.parseFromString(str, "application/xml");
+    //let str = "<xml>  <ToUserName>< ![CDATA[toUser] ]></ToUserName>  <FromUserName>< ![CDATA[fromUser] ]></FromUserName>  <CreateTime>1348831860</CreateTime>  <MsgType>< ![CDATA[text] ]></MsgType>  <Content>< ![CDATA[this is a test] ]></Content>  <MsgId>1234567890123456</MsgId>  </xml>";
+    //const parser = new DOMParser();
+    //let doc = parser.parseFromString(str, "application/xml");
+    //ctx.body = doc;
 
-    ctx.body = doc;
+    let msg = { "wxname": "walle" };
+    (1==1) ? (msg["id"] = "133") : "msg";
+    ctx.body = JSON.stringify(msg);
 });
 
 module.exports = router;
