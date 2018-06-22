@@ -10,7 +10,7 @@
     "debug": "node --nolazy --inspect-brk=9239 bin/www"
   },
   "dependencies": {
-    "co-wechat-api": "latest",
+    "co-wechat-api": "^3.7.0",
     "debug": "latest",
     "eslint": "latest",
     "koa": "latest",
@@ -20,9 +20,9 @@
     "koa-onerror": "latest",
     "koa-route": "latest",
     "koa-router": "latest",
-    "koa-static": "latest",
+    "koa-static": "^5.0.0",
     "koa-views": "latest",
-    "mongoose": "^5.1.4",
+    "mongoose": "^5.1.6",
     "nunjucks": "latest"
   },
   "devDependencies": {

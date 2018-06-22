@@ -96,9 +96,15 @@ router.get('/testxml', async function (ctx, next) {
     //let doc = parser.parseFromString(str, "application/xml");
     //ctx.body = doc;
 
-    let msg = { "wxname": "walle" };
-    (1==1) ? (msg["id"] = "133") : "msg";
-    ctx.body = JSON.stringify(msg);
+    // let msg = { "wxname": "walle" };
+    // (1==1) ? (msg["id"] = "133") : "msg";
+    // let count = 11;
+    // count = count > 20 ? 20 : count;
+    // ctx.body = count;
+
+    let t = "" || "hello";
+    ctx.body = t;
+    //ctx.body = JSON.stringify(msg);
 });
 
 module.exports = router;
