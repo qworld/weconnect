@@ -1,0 +1,43 @@
+{
+    "appenders": {
+        "stdout": { "type": "stdout" },
+        "console": { "type": "console" },
+        "file": { 
+            "type": "file", 
+            "filename": "logs/app.log",
+            "keepFileExt": "true"
+        },
+        "dateFile": {
+            "type": "dateFile",
+            "filename": "logs/app.log",
+            "pattern": ".yyyy-MM-dd-hh",
+            "layout": { "type": "colored" },
+            "alwaysIncludePattern": "true",
+            "daysToKeep": "15",
+            "keepFileExt": "true"
+        },
+        "dateFile_error": {
+            "type": "dateFile",
+            "filename": "app_errors.log",
+            "pattern": ".yyyy-MM-dd-hh",
+            "layout": { "type": "colored" },
+            "alwaysIncludePattern": "true",
+            "daysToKeep": "15",
+            "keepFileExt": "false"
+        }
+    },
+    "categories": {
+        "default": { 
+            "appenders": [ "stdout", "file" ], 
+            "level": "debug" 
+        },
+        "all": {
+            "appenders": [ "stdout", "dateFile" ], 
+            "level": "ALL" 
+        },
+        "error": {
+            "appenders": [ "stdout", "dateFile_error" ], 
+            "level": "ERROR" 
+        }
+    }
+}
