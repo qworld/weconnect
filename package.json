@@ -10,7 +10,6 @@
     "debug": "node --nolazy --inspect-brk=9239 bin/www"
   },
   "dependencies": {
-    "co-wechat-api": "^3.7.1",
     "debug": "latest",
     "eslint": "^5.1.0",
     "koa": "^2.5.2",
