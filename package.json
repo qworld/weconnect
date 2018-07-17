@@ -18,11 +18,10 @@
     "koa-json": "latest",
     "koa-logger": "latest",
     "koa-onerror": "latest",
-    "koa-route": "latest",
     "koa-router": "latest",
     "koa-static": "^5.0.0",
     "koa-views": "latest",
-    "mongoose": "^5.2.3",
+    "mongoose": "^5.2.4",
     "nunjucks": "latest"
   },
   "devDependencies": {

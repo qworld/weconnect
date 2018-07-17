@@ -10,6 +10,7 @@ const tokens = require('./routes/tokens');
 const users = require('./routes/users');
 const webhook = require('./routes/webhook');
 const menus = require('./routes/menus');
+const verify = require('./routes/verify');
 
 //register global variables
 global.AppRoot = __dirname; //root path of this project
@@ -39,29 +40,13 @@ app.use(async (ctx, next) => {
   console.log(`${ctx.method} ${ctx.url} - ${ms}ms`);
 });
 
-
-/*
-var MongoClient = require('mongodb').MongoClient
-  , assert = require('assert');
-
-// Connection URL
-var url = 'mongodb://localhost:27017/weconnect';
-
-// Use connect method to connect to the server
-MongoClient.connect(url, function(err, db) {
-  assert.equal(null, err);
-  console.log("Connected successfully to server");
-
-  db.close();
-});
-*/
-
 // routes
 app.use(index.routes(), index.allowedMethods());
 app.use(users.routes(), users.allowedMethods());
 app.use(tokens.routes(), tokens.allowedMethods());
 app.use(webhook.routes(), webhook.allowedMethods());
 app.use(menus.routes(), menus.allowedMethods());
+app.use(verify.routes(), verify.allowedMethods());
 
 // error-handling
 app.on('error', (err, ctx) => {

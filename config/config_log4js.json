@@ -4,12 +4,12 @@
         "console": { "type": "console" },
         "file": { 
             "type": "file", 
-            "filename": "logs/app.log",
+            "filename": "../logs/logs/app.log",
             "keepFileExt": "true"
         },
         "dateFile": {
             "type": "dateFile",
-            "filename": "logs/app.log",
+            "filename": "../logs/app.log",
             "pattern": ".yyyy-MM-dd-hh",
             "layout": { "type": "colored" },
             "alwaysIncludePattern": "true",
@@ -18,7 +18,7 @@
         },
         "dateFile_error": {
             "type": "dateFile",
-            "filename": "app_errors.log",
+            "filename": "../logs/app_errors.log",
             "pattern": ".yyyy-MM-dd-hh",
             "layout": { "type": "colored" },
             "alwaysIncludePattern": "true",
