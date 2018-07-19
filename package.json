@@ -21,9 +21,10 @@
     "koa-static": "^5.0.0",
     "koa-views": "latest",
     "mongoose": "^5.2.4",
-    "nunjucks": "latest"
+    "nunjucks": "latest",
+    "log4js": "^3.0.0"   
   },
   "devDependencies": {
-    "nodemon": "^1.18.2"
+    "nodemon": "^1.18.3"
   }
 }
