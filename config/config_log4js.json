@@ -5,6 +5,8 @@
         "file": { 
             "type": "file", 
             "filename": "../logs/logs/app.log",
+            
+            "backups": 5,
             "keepFileExt": "true"
         },
         "dateFile": {
@@ -28,8 +30,8 @@
     },
     "categories": {
         "default": { 
-            "appenders": [ "stdout", "file" ], 
-            "level": "debug" 
+            "appenders": [ "stdout", "dateFile" ], 
+            "level": "ALL" 
         },
         "all": {
             "appenders": [ "stdout", "dateFile" ], 
@@ -37,7 +39,7 @@
         },
         "error": {
             "appenders": [ "stdout", "dateFile_error" ], 
-            "level": "ERROR" 
+            "level": "DEBUG" 
         }
     }
 }
