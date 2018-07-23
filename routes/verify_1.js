@@ -2,8 +2,8 @@
 
 const router = require('koa-router')();
 const crypto = require('crypto');
-
-const token = 'k3h#7*!hga3Bv<&wP8=R'; //在公众平台后台自行添加的token，需要修改
+//在公众平台后台自行添加的token，使用时需要修改成与公众平台一致
+const token = 'k3h#7*!hga3Bv<&wP8=R'; 
 
 router.prefix('/verify');
 

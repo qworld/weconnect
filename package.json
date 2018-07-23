@@ -20,7 +20,11 @@
     "koa-router": "latest",
     "koa-static": "^5.0.0",
     "koa-views": "latest",
+<<<<<<< HEAD
     "log4js": "^3.0.0",
+=======
+    "log4js": "^3.0.1",
+>>>>>>> 8e809550c674611f5eaa95f11c849f15ff4b382e
     "mongoose": "^5.2.4",
     "nunjucks": "latest"
   },

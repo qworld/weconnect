@@ -1,51 +1,43 @@
-var http = require('http');
-var crypto = require('crypto');
+/**
+ * 用于第一次开通公众平台接口验证
+ * 在公众平台后台提交验证的URL为：xxx.xxx.xxx/verify/，具体域名根据实际情况填写
+ **/
 
-var server = http.createServer();
-
-server.on('request',function (req, res){
-          res.writeHead(200, {'Content-Type': 'text/plain'});
-
-          var signature = require('url').parse(req.url,true).query.signature
-          var timestamp = require('url').parse(req.url,true).query.timestamp
-          var echostr = require('url').parse(req.url,true).query.echostr
-          var nonce = require('url').parse(req.url,true).query.nonce
-          var token = 'k3h#7*!hga3Bv<&wP8=R';
-          var tmpArr = Array(token, timestamp, nonce).sort().join("");
-          var sha1 = crypto.createHash('sha1');
-          sha1.update(tmpArr);
-          tmpArr = sha1.digest('hex');
-          if(tmpArr == signature){
-                  console.log('signature: '+signature);
-                  console.log('timestamp: '+timestamp);
-                  console.log('nonce: ' +nonce);
-                  console.log('echostr: '+echostr);
-                  res.end(echostr);
-            }else{
-                  var mydate = new Date();
-                  console.log(mydate.toLocalString()+', incorrect request');
-                  res.end('incorrect request, please try again');
-            }
-
-});
-
-const hostname = '127.0.0.1';
-const port = 8088;
-
-server.listen(port,hostname, ()=>{
-        console.log('server running on http://'+hostname+':'+port); 
-    });
-
-/************************** */
+'use strict';
 
 const router = require('koa-router')();
 const crypto = require('crypto');
+//在公众平台后台自行添加的token，使用时需要修改成与公众平台一致
+const token = 'k3h#7*!hga3Bv<&wP8=R'; 
 
 router.prefix('/verify');
 
-router.get('/', function (ctx, next) {
-    ctx.body = 'this is a users response!';
+router.get('/', async (ctx, next) => {
+    let signature = ctx.query.signature;
+    let timestamp = ctx.query.timestamp;
+    let echostr = ctx.query.echostr;
+    let nonce = ctx.query.nonce;
+    ctx.response.type = "text/plain";
+    if( verify(signature, timestamp, nonce) ){
+        ctx.response.body = echostr;
+    }
+    else{
+        ctx.body = "incorrect request, please try again";
+    }
 });
 
+/**
+ * 根据token和timestamp参数、nonce参数，校验请求是否来自微信官方
+ * @param {string} signature 微信加密签名，signature结合了开发者填写的token参数和请求中的timestamp参数、nonce参数
+ * @param {string} timestamp 时间戳
+ * @param {string} nonce 随机数
+ */
+function verify(signature, timestamp, nonce){
+    let tmpArr = Array(token, timestamp, nonce).sort().join("");
+    let sha1 = crypto.createHash('sha1');
+    sha1.update(tmpArr);
+    tmpArr = sha1.digest('hex');
+    return result = tmpArr == signature;
+}
 
 module.exports = router;
