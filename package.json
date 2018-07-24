@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "debug": "latest",
-    "eslint": "^5.1.0",
+    "eslint": "^5.2.0",
     "koa": "^2.5.2",
     "koa-bodyparser": "latest",
     "koa-json": "latest",
@@ -20,11 +20,12 @@
     "koa-router": "latest",
     "koa-static": "^5.0.0",
     "koa-views": "latest",
-    "log4js": "^3.0.1",
-    "mongoose": "^5.2.4",
+    "log4js": "^3.0.2",
+    "mongoose": "^5.2.5",
     "nunjucks": "latest"
   },
   "devDependencies": {
+    "jest": "^23.4.1",
     "nodemon": "^1.18.3"
   }
 }
