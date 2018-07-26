@@ -20,18 +20,10 @@
     "koa-router": "latest",
     "koa-static": "^5.0.0",
     "koa-views": "latest",
-<<<<<<< HEAD
     "log4js": "^3.0.2",
     "mongoose": "^5.2.5",
-=======
-<<<<<<< HEAD
-    "log4js": "^3.0.0",
-=======
-    "log4js": "^3.0.1",
->>>>>>> 8e809550c674611f5eaa95f11c849f15ff4b382e
-    "mongoose": "^5.2.4",
->>>>>>> 666f21e6f1970a14e81daa58040d5ff70958d12e
-    "nunjucks": "latest"
+    "nunjucks": "latest",
+    "fast-xml-parser": "latest"
   },
   "devDependencies": {
     "jest": "^23.4.1",
