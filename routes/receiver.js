@@ -10,3 +10,8 @@ router.get('/', async (ctx, next) => {
     ctx.body = 'success'
 });
 
+router.post('/', async (ctx, next) => {
+    ctx.body = 'success'
+    let reqType = ctx.request.type;
+    
+});

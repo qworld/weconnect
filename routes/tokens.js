@@ -1,5 +1,5 @@
 const router = require('koa-router')();
-const weconnect_core = require('/Users/quan/Dev/nodejs/weconnect_core');
+const weconnect_core = require('/Users/quanquan/Dev/nodejs/weconnect_core');
 const utils = require("../lib/util");
 //const weApi = require('co-wechat-api');
 //const mongoose = require('mongoose');
