@@ -11,7 +11,7 @@
         },
         "dateFile": {
             "type": "dateFile",
-            "filename": "../logs/app.log",
+            "filename": "../logs/weconnect.log",
             "pattern": ".yyyy-MM-dd-hh",
             "layout": { "type": "colored" },
             "alwaysIncludePattern": "true",
@@ -20,7 +20,7 @@
         },
         "dateFile_error": {
             "type": "dateFile",
-            "filename": "../logs/app_errors.log",
+            "filename": "../logs/weconnect_errors.log",
             "pattern": ".yyyy-MM-dd-hh",
             "layout": { "type": "colored" },
             "alwaysIncludePattern": "true",
