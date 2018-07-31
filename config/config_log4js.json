@@ -14,7 +14,7 @@
             "filename": "../logs/weconnect.log",
             "pattern": ".yyyy-MM-dd-hh",
             "layout": { "type": "colored" },
-            "alwaysIncludePattern": "true",
+            "alwaysIncludePattern": "false",
             "daysToKeep": "15",
             "keepFileExt": "true"
         },
@@ -23,7 +23,7 @@
             "filename": "../logs/weconnect_errors.log",
             "pattern": ".yyyy-MM-dd-hh",
             "layout": { "type": "colored" },
-            "alwaysIncludePattern": "true",
+            "alwaysIncludePattern": "false",
             "daysToKeep": "15",
             "keepFileExt": "false"
         }
