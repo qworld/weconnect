@@ -11,6 +11,7 @@ logs/
 
 #lock file
 *.lock
+package-lock.json
 
 # yarn file
 .yarn*
