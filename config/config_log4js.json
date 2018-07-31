@@ -4,7 +4,7 @@
         "console": { "type": "console" },
         "file": { 
             "type": "file", 
-            "filename": "../logs/app.log",
+            "filename": "../logs/weconnect.log",
             
             "backups": 5,
             "keepFileExt": "true"
