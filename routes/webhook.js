@@ -32,12 +32,12 @@ const exeCmd = (command = '') =>{
 const git_integrate = () => {
     let cmd = "cd /var/www/weconnect_core/ "
             + " && git clean -f "
-            + " && git pull bitbucket master "
+            + " && git pull origin master "
             + " && chown www-data:www-data -R /var/www/weconnect_core/ "
             + " && npm install --no-optional --no-shrinkwrap --no-package-lock "
             + " && cd /var/www/weconnect/ "
             + " && git clean -f "
-            + " && git pull bitbucket master "
+            + " && git pull origin master "
             + " && chown www-data:www-data -R /var/www/weconnect/ "
             + " && npm install --no-optional --no-shrinkwrap --no-package-lock ";
             //+ " && npm up";
