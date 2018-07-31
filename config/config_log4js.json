@@ -4,7 +4,7 @@
         "console": { "type": "console" },
         "file": { 
             "type": "file", 
-            "filename": "../logs/logs/app.log",
+            "filename": "../logs/app.log",
             
             "backups": 5,
             "keepFileExt": "true"
