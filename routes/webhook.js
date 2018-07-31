@@ -35,8 +35,8 @@ const git_integrate = () => {
             + " && git pull bitbucket master "
             + " && chown www-data:www-data -R /var/www/weconnect/ "
             + " && chown www-data:www-data -R /var/www/weconnect_core/ "
-            + " && npm install "
-            + " && npm up";
+            + " && npm install --no-optional --no-shrinkwrap --no-package-lock ";
+            //+ " && npm up";
     //execute command
     exeCmd(cmd);
 }
