@@ -16,6 +16,7 @@ const users = require('./routes/users');
 const webhook = require('./routes/webhook');
 const menus = require('./routes/menus');
 const verify = require('./routes/verify');
+const receiver = require('./routes/receiver');
 
 //register global variables
 global.AppRoot = __dirname; //root path of this project
@@ -51,11 +52,13 @@ app.use(async (ctx, next) => {
 
 // routes
 app.use(index.routes(), index.allowedMethods());
-app.use(users.routes(), users.allowedMethods());
 app.use(tokens.routes(), tokens.allowedMethods());
 app.use(webhook.routes(), webhook.allowedMethods());
+app.use(receiver.routes(), receiver.allowedMethods());
 app.use(menus.routes(), menus.allowedMethods());
 app.use(verify.routes(), verify.allowedMethods());
+app.use(users.routes(), users.allowedMethods());
+
 
 // error-handling
 app.on('error', (err, ctx) => {
