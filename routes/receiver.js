@@ -30,8 +30,8 @@ router.get('/', async (ctx, next) => {
 });
 
 router.post('/', async (ctx, next) => {
-    ctx.body = 'success'
-    let reqType = ctx.request.type;
+    ctx.body = 'success';
+    let reqType = ctx.request.body;
     console.log(reqType);
 });
 
