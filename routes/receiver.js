@@ -46,7 +46,7 @@ function verify(signature, timestamp, nonce){
     let sha1 = crypto.createHash('sha1');
     sha1.update(tmpArr);
     tmpArr = sha1.digest('hex');
-    return result = tmpArr == signature;
+    return (tmpArr == signature);
 }
 
 module.exports = router;
