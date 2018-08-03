@@ -2,6 +2,10 @@
 
 const router = require('koa-router')();
 const crypto = require('crypto');
+const log4js = require('log4js');
+
+log4js.configure('./config/config_log4js.json');
+const logger = log4js.getLogger("default");
 
 //在公众平台后台自行添加的token，使用时需要修改成与公众平台一致
 const token = 'k3h#7*!hga3Bv<&wP8=R'; 
@@ -29,10 +33,13 @@ router.get('/', async (ctx, next) => {
     }
 });
 
+router.get('/test', async (ctx, next) => {
+    console.log(app);
+});
+
 router.post('/', async (ctx, next) => {
     ctx.body = 'success';
-    let reqType = ctx.request.body;
-    console.log(reqType);
+    logger.info(ctx.request.body);
 });
 
 /**
