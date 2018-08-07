@@ -34,7 +34,7 @@ router.get('/', async (ctx, next) => {
 });
 
 router.get('/test', async (ctx, next) => {
-    console.log(app);
+    console.log(ctx.request);
 });
 
 router.post('/', async (ctx, next) => {
