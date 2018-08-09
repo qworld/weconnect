@@ -39,7 +39,7 @@ router.get('/test', async (ctx, next) => {
 
 router.post('/', async (ctx, next) => {
     ctx.body = 'success';
-    logger.info(ctx.request.body);
+    logger.info(ctx.request);
 });
 
 /**
