@@ -10,8 +10,11 @@ const json = require('koa-json');
 const onerror = require('koa-onerror');
 const bodyparser = require('koa-bodyparser');
 const koa_logger = require('koa-logger');
+
+const weconnect_core = require('weconnect_core');
+
 const index = require('./routes/index');
-const tokens = require('./routes/tokens');
+//const tokens = require('./routes/tokens');
 const users = require('./routes/users');
 const webhook = require('./routes/webhook');
 const menus = require('./routes/menus');
@@ -21,15 +24,18 @@ const receiver = require('./routes/receiver');
 //register global variables
 global.AppRoot = __dirname; //root path of this project
 global.ApiPrefix = "https://api.weixin.qq.com/cgi-bin/";
+app.coreApi = new weconnect_core( { "init_mode":"static", "appid":"wx90bbba88d31e8381", "secret":"63b3a9188d3dfb3acf5c63c28ec1b050" } );
 
 // error handler
 onerror(app);
 
 // middlewares
-app.use(koa_logger());
+//app.use(koa_logger());
 app.use(bodyparser({
-  enableTypes:['json', 'form', 'text']
+  enableTypes:['json', 'form', 'text'],
+  formLimit: '256kb'
 }));
+
 app.use(json());
 app.use(require('koa-static')(__dirname + '/public'));
 
@@ -50,9 +56,11 @@ app.use(async (ctx, next) => {
   infologger.info(msg);
 });
 
+app.xyz = "13x";
+
 // routes
 app.use(index.routes(), index.allowedMethods());
-app.use(tokens.routes(), tokens.allowedMethods());
+//app.use(tokens.routes(), tokens.allowedMethods());
 app.use(webhook.routes(), webhook.allowedMethods());
 app.use(receiver.routes(), receiver.allowedMethods());
 app.use(menus.routes(), menus.allowedMethods());

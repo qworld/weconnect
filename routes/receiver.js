@@ -38,8 +38,11 @@ router.get('/test', async (ctx, next) => {
 });
 
 router.post('/', async (ctx, next) => {
+    ctx.response.type = "text/plain";
     ctx.body = 'success';
-    logger.info(ctx.request);
+    logger.info(ctx.request.body);
+    let jsonMsg = await ctx.app.coreApi.message.parseXmlMsg(ctx.request.body);
+    logger.info(jsonMsg);
 });
 
 /**
