@@ -41,8 +41,9 @@ router.post('/', async (ctx, next) => {
     ctx.response.type = "text/plain";
     ctx.body = 'success';
     logger.info(ctx.request.body);
-    let jsonMsg = await ctx.app.coreApi.message.parseXmlMsg(ctx.request.body);
+    let jsonMsg = await ctx.app.coreApi.message.xmlToJson(ctx.request.body);
     logger.info(jsonMsg);
+    await parseMsg(ctx, jsonMsg);
 });
 
 /**
@@ -57,6 +58,30 @@ function verify(signature, timestamp, nonce){
     sha1.update(tmpArr);
     tmpArr = sha1.digest('hex');
     return (tmpArr == signature);
+}
+
+/**
+ * 解析
+ * @param {*} msg 
+ */
+async function parseMsg(ctx, msg){
+    logger.info(msg);
+    
+    let type = msg.MsgType;
+    let openId = msg.FromUserName;
+    switch(type){
+        case "text":
+        case "image":
+        case "voice":
+        case "video":
+        case "shortvideo":
+        case "location":
+        case "link":
+        default:
+            await ctx.app.coreApi.message.sendText(openId, "请稍后，马上回复你哈...");
+        break;
+    }
+    
 }
 
 module.exports = router;

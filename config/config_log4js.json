@@ -15,7 +15,7 @@
             "pattern": ".yyyy-MM-dd-hh",
             "layout": { "type": "colored" },
             "alwaysIncludePattern": "false",
-            "daysToKeep": "15",
+            "daysToKeep": "2",
             "keepFileExt": "true"
         },
         "dateFile_error": {
@@ -24,7 +24,7 @@
             "pattern": ".yyyy-MM-dd-hh",
             "layout": { "type": "colored" },
             "alwaysIncludePattern": "false",
-            "daysToKeep": "15",
+            "daysToKeep": "2",
             "keepFileExt": "false"
         }
     },

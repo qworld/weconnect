@@ -14,7 +14,7 @@ const koa_logger = require('koa-logger');
 const weconnect_core = require('weconnect_core');
 
 const index = require('./routes/index');
-//const tokens = require('./routes/tokens');
+const tokens = require('./routes/tokens');
 const users = require('./routes/users');
 const webhook = require('./routes/webhook');
 const menus = require('./routes/menus');
@@ -60,7 +60,7 @@ app.xyz = "13x";
 
 // routes
 app.use(index.routes(), index.allowedMethods());
-//app.use(tokens.routes(), tokens.allowedMethods());
+app.use(tokens.routes(), tokens.allowedMethods());
 app.use(webhook.routes(), webhook.allowedMethods());
 app.use(receiver.routes(), receiver.allowedMethods());
 app.use(menus.routes(), menus.allowedMethods());

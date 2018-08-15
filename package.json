@@ -21,13 +21,13 @@
     "koa-router": "latest",
     "koa-static": "^5.0.0",
     "koa-views": "latest",
-    "log4js": "^3.0.4",
-    "mongoose": "^5.2.7",
+    "log4js": "^3.0.5",
+    "mongoose": "^5.2.8",
     "nunjucks": "latest",
-    "weconnect_core": "file:../weconnect_core"
+    "weconnect_core": "file:../weconnect_core/"
   },
   "devDependencies": {
-    "jest": "^23.4.2",
+    "jest": "^23.5.0",
     "nodemon": "^1.18.3"
   }
 }
