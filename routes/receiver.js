@@ -40,7 +40,7 @@ router.get('/test', async (ctx, next) => {
 router.post('/', async (ctx, next) => {
     ctx.response.type = "text/plain";
     ctx.body = 'success';
-    logger.info(ctx.request.body);
+    logger.info(ctx.request.type);
     let jsonMsg = await ctx.app.coreApi.message.xmlToJson(ctx.request.body);
     logger.info(jsonMsg);
     await parseMsg(ctx, jsonMsg);
