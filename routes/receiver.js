@@ -19,6 +19,7 @@ router.prefix('/receiver');
 /**
  * 默认为微信官方的服务器验证
  */
+/*
 router.get('/', async (ctx, next) => {
     let signature = ctx.query.signature;
     let timestamp = ctx.query.timestamp;
@@ -32,18 +33,23 @@ router.get('/', async (ctx, next) => {
         ctx.body = "incorrect request, please try again";
     }
 });
+*/
+
+router.get('/', async(ctx) => {
+    ctx.body = "incorrect request, please try again";
+});
 
 router.get('/test', async (ctx, next) => {
     console.log(ctx.request);
 });
 
 router.post('/', async (ctx, next) => {
-    //ctx.response.type = "text/xml";
+    ctx.response.type = "text/xml";
     ctx.body = 'success';
-    logger.info(ctx.request.type);
-    let jsonMsg = await ctx.app.coreApi.message.xmlToJson(ctx.request.body);
-    logger.info(jsonMsg);
-    await parseMsg(ctx, jsonMsg);
+    logger.info(ctx.request.body);
+    //let jsonMsg = await ctx.app.coreApi.message.xmlToJson(ctx.request.body);
+    //logger.info(jsonMsg);
+    //await parseMsg(ctx, jsonMsg);
 });
 
 /**
