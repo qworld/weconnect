@@ -5,7 +5,6 @@
         "file": { 
             "type": "file", 
             "filename": "../logs/weconnect.log",
-            
             "backups": 5,
             "keepFileExt": "true"
         },
@@ -14,7 +13,7 @@
             "filename": "../logs/weconnect.log",
             "pattern": ".yyyy-MM-dd-hh",
             "layout": { "type": "colored" },
-            "alwaysIncludePattern": "false",
+            "alwaysIncludePattern": "true",
             "daysToKeep": "2",
             "keepFileExt": "true"
         },
@@ -23,9 +22,9 @@
             "filename": "../logs/weconnect_errors.log",
             "pattern": ".yyyy-MM-dd-hh",
             "layout": { "type": "colored" },
-            "alwaysIncludePattern": "false",
+            "alwaysIncludePattern": "true",
             "daysToKeep": "2",
-            "keepFileExt": "false"
+            "keepFileExt": "true"
         }
     },
     "categories": {

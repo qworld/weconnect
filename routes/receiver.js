@@ -38,7 +38,7 @@ router.get('/test', async (ctx, next) => {
 });
 
 router.post('/', async (ctx, next) => {
-    ctx.response.type = "text/plain";
+    //ctx.response.type = "text/xml";
     ctx.body = 'success';
     logger.info(ctx.request.type);
     let jsonMsg = await ctx.app.coreApi.message.xmlToJson(ctx.request.body);
@@ -66,7 +66,7 @@ function verify(signature, timestamp, nonce){
  */
 async function parseMsg(ctx, msg){
     logger.info(msg);
-    
+    /*
     let type = msg.MsgType;
     let openId = msg.FromUserName;
     switch(type){
@@ -81,7 +81,7 @@ async function parseMsg(ctx, msg){
             await ctx.app.coreApi.message.sendText(openId, "请稍后，马上回复你哈...");
         break;
     }
-    
+    */
 }
 
 module.exports = router;
