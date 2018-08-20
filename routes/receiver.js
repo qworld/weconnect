@@ -1,8 +1,9 @@
 'use strict';
 
-const router = require('koa-router')();
 const crypto = require('crypto');
+const router = require('koa-router')();
 const log4js = require('log4js');
+const getRawBody = require('raw-body');
 
 log4js.configure('./config/config_log4js.json');
 const logger = log4js.getLogger("default");
@@ -17,39 +18,44 @@ router.prefix('/receiver');
 //send reply, save into db & log
 
 /**
- * 默认为微信官方的服务器验证
+ * 默认GET方式为微信官方的服务器验证
  */
-/*
 router.get('/', async (ctx, next) => {
-    let signature = ctx.query.signature;
-    let timestamp = ctx.query.timestamp;
-    let echostr = ctx.query.echostr;
-    let nonce = ctx.query.nonce;
+    const { signature, timestamp, nonce, echostr } = ctx.query;
     ctx.response.type = "text/plain";
-    if( verify(signature, timestamp, nonce) ){
-        ctx.response.body = echostr;
+    if( await checkSignature(signature, timestamp, nonce, token) ){
+        return ctx.body = echostr;
     }
-    else{
-        ctx.body = "incorrect request, please try again";
-    }
+    ctx.status = 401;
+    ctx.body = "Invalid request, unauthorized access...";
 });
-*/
 
-router.get('/', async(ctx) => {
-    ctx.body = "incorrect request, please try again";
-});
 
 router.get('/test', async (ctx, next) => {
     console.log(ctx.request);
 });
 
 router.post('/', async (ctx, next) => {
-    ctx.response.type = "text/xml";
-    ctx.body = 'success';
-    logger.info(ctx.request.body);
-    //let jsonMsg = await ctx.app.coreApi.message.xmlToJson(ctx.request.body);
-    //logger.info(jsonMsg);
-    //await parseMsg(ctx, jsonMsg);
+    const { signature, timestamp, nonce } = ctx.query;
+    //ctx.response.type = "text/xml";
+    //校验请求是否来自微信服务器
+    if( await checkSignature(signature, timestamp, nonce, token) ){
+        // 取原始数据
+        const xml = await getRawBody(ctx.req, {
+            length: ctx.request.length,
+            limit: '1mb',
+            encoding: ctx.request.charset || 'utf-8'
+        });
+        
+        //logger.info(xml);
+        let jsonMsg = await ctx.app.coreApi.message.xmlToJson(xml);
+        //logger.info(jsonMsg);
+        await parseMsg(ctx, jsonMsg);
+        ctx.body = 'success';
+    } else {
+        ctx.status = 401;
+        ctx.body = "Invalid request, unauthorized access...";
+    }
 });
 
 /**
@@ -57,13 +63,14 @@ router.post('/', async (ctx, next) => {
  * @param {string} signature 微信加密签名，signature结合了开发者填写的token参数和请求中的timestamp参数、nonce参数
  * @param {string} timestamp 时间戳
  * @param {string} nonce 随机数
+ * @param {string} token 全局access_token,调用接口凭证
  */
-function verify(signature, timestamp, nonce){
-    let tmpArr = Array(token, timestamp, nonce).sort().join("");
-    let sha1 = crypto.createHash('sha1');
-    sha1.update(tmpArr);
-    tmpArr = sha1.digest('hex');
-    return (tmpArr == signature);
+const checkSignature = async function(signature, timestamp, nonce, token){
+    let data = Array(token, timestamp, nonce).sort().join("");
+    const hash = crypto.createHash('sha1');
+    hash.update(data, 'utf8');
+    let sign = hash.digest('hex');
+    return (sign == signature);
 }
 
 /**
@@ -72,7 +79,6 @@ function verify(signature, timestamp, nonce){
  */
 async function parseMsg(ctx, msg){
     logger.info(msg);
-    /*
     let type = msg.MsgType;
     let openId = msg.FromUserName;
     switch(type){
@@ -87,7 +93,7 @@ async function parseMsg(ctx, msg){
             await ctx.app.coreApi.message.sendText(openId, "请稍后，马上回复你哈...");
         break;
     }
-    */
+
 }
 
 module.exports = router;
