@@ -1,5 +1,12 @@
 'use strict';
 
+/**
+ * 此页面接收并处理微信服务器推送的消息。
+ * 微信服务器推送的消息格式为xml。
+ * 回复消息时不通过在response里返回xml格式数据来实现，而是通过客服消息接口向用户回复消息。
+ * 这种方式也是微信官方建议的，提高代码复用率。
+ */
+
 const crypto = require('crypto');
 const router = require('koa-router')();
 const log4js = require('log4js');
@@ -48,7 +55,8 @@ router.post('/', async (ctx, next) => {
         });
         
         //logger.info(xml);
-        let jsonMsg = await ctx.app.coreApi.message.xmlToJson(xml);
+        //let jsonMsg = await ctx.app.coreApi.message.xmlToJson(xml);
+        let jsonMsg = await ctx.app.coreApi.getModule('message').xmlToJson(xml);
         //logger.info(jsonMsg);
         await parseMsg(ctx, jsonMsg);
         ctx.body = 'success';
@@ -81,6 +89,7 @@ async function parseMsg(ctx, msg){
     logger.info(msg);
     let type = msg.MsgType;
     let openId = msg.FromUserName;
+
     switch(type){
         case "text":
         case "image":
