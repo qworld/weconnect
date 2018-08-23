@@ -54,8 +54,7 @@ function yzx(data){
 }
 
 router.get('/', async function (ctx, next) {
-    let msg = ctx.app.coreApi.utils.validator.isObj({"a":133});
-    ctx.body = 'this is a token response: ' + msg;
+    ctx.body = 'this is a token response';
 });
 
 router.get('/get', async function (ctx, next) {
@@ -79,13 +78,13 @@ router.get('/testmenu', async function (ctx, next) {
 
     let menu = await utils.file.read(global.AppRoot + "/configs/menu_list.json");
     //let res = core.menu.addGeneralMenu(menu);
-    let menuMgr = ctx.app.coreApi.menu;
+    let menuMgr = await ctx.app.coreApi.getModule("menu");
     let res = await menuMgr.addMenu(menu);
     ctx.body = 'the result is : ' + JSON.stringify(res);
 });
 
 router.get('/getmenu', async function (ctx, next) {
-    let menuMgr = ctx.app.coreApi.menu;
+    let menuMgr = await ctx.app.coreApi.getModule("menu");
     //menuMgr.getRequestUrl("head", "12345"); 
     let res = await menuMgr.getCurrentMenuInfo();
     ctx.body = 'the result is : ' + JSON.stringify(res);

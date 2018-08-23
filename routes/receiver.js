@@ -39,7 +39,9 @@ router.get('/', async (ctx, next) => {
 
 
 router.get('/test', async (ctx, next) => {
-    console.log(ctx.request);
+    const path = require('path');
+    let info = path.basename('verify copy.js', '.js');
+    console.log(info);
 });
 
 router.post('/', async (ctx, next) => {
@@ -56,7 +58,8 @@ router.post('/', async (ctx, next) => {
         
         //logger.info(xml);
         //let jsonMsg = await ctx.app.coreApi.message.xmlToJson(xml);
-        let jsonMsg = await ctx.app.coreApi.getModule('message').xmlToJson(xml);
+        const msg = await ctx.app.coreApi.getModule('message');
+        let jsonMsg = await msg.xmlToJson(xml);
         //logger.info(jsonMsg);
         await parseMsg(ctx, jsonMsg);
         ctx.body = 'success';
@@ -99,7 +102,8 @@ async function parseMsg(ctx, msg){
         case "location":
         case "link":
         default:
-            await ctx.app.coreApi.message.sendText(openId, "请稍后，马上回复你哈...");
+            const message = await ctx.app.coreApi.getModule('message');
+            await message.sendText(openId, "请稍后，马上回复你哈...");
         break;
     }
 
