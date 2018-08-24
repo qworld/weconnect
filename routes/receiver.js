@@ -101,10 +101,11 @@ async function parseMsg(ctx, msg){
         case "shortvideo":
         case "location":
         case "link":
-        default:
             const message = await ctx.app.coreApi.getModule('message');
             await message.sendText(openId, "请稍后，马上回复你哈...");
-        break;
+            break;
+        default:
+            break;
     }
 
 }

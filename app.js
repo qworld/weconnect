@@ -24,7 +24,7 @@ const receiver = require('./routes/receiver');
 //register global variables
 global.AppRoot = __dirname; //root path of this project
 global.ApiPrefix = "https://api.weixin.qq.com/cgi-bin/";
-app.coreApi = new weconnect_core( { "init_mode":"static", "appid":"wx90bbba88d31e8381", "secret":"63b3a9188d3dfb3acf5c63c28ec1b050" } );
+app.coreApi = weconnect_core("wx90bbba88d31e8381", "63b3a9188d3dfb3acf5c63c28ec1b050");
 
 // error handler
 onerror(app);
