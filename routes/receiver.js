@@ -39,9 +39,11 @@ router.get('/', async (ctx, next) => {
 
 
 router.get('/test', async (ctx, next) => {
-    const path = require('path');
-    let info = path.basename('verify copy.js', '.js');
-    console.log(info);
+    // const path = require('path');
+    // let info = path.basename('verify copy.js', '.js');
+    let menu = ctx.app.coreApi.menu;
+    let data = await menu.getMenu();
+    console.log(data);
 });
 
 router.post('/', async (ctx, next) => {
