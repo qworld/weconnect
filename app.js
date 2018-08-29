@@ -11,7 +11,8 @@ const onerror = require('koa-onerror');
 const bodyparser = require('koa-bodyparser');
 //const koa_logger = require('koa-logger');
 
-const weconnect_core = require('weconnect_core')("wx90bbba88d31e8381", "63b3a9188d3dfb3acf5c63c28ec1b050");
+//const weconnect_core = require('weconnect_core')("wx90bbba88d31e8381", "63b3a9188d3dfb3acf5c63c28ec1b050");
+const weconnect_core = new require('weconnect_core')("wx90bbba88d31e8381", "63b3a9188d3dfb3acf5c63c28ec1b050");
 
 const index = require('./routes/index');
 const tokens = require('./routes/tokens');
