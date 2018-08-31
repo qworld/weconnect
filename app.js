@@ -11,8 +11,8 @@ const onerror = require('koa-onerror');
 const bodyparser = require('koa-bodyparser');
 //const koa_logger = require('koa-logger');
 
-//const weconnect_core = require('weconnect_core')("wx90bbba88d31e8381", "63b3a9188d3dfb3acf5c63c28ec1b050");
-const weconnect_core = new require('weconnect_core')("wx90bbba88d31e8381", "63b3a9188d3dfb3acf5c63c28ec1b050");
+//const weconnect_core = require('../weconnect_core/');
+const weconnect_core = require('./routes/core_service');
 
 const index = require('./routes/index');
 const tokens = require('./routes/tokens');
@@ -24,7 +24,10 @@ const receiver = require('./routes/receiver');
 //register global variables
 global.AppRoot = __dirname; //root path of this project
 global.ApiPrefix = "https://api.weixin.qq.com/cgi-bin/";
-app.coreApi = weconnect_core;
+//app.coreApi = weconnect_core.createService("wx90bbba88d31e8381", "63b3a9188d3dfb3acf5c63c28ec1b050");
+
+//const core = new weconnect_core("wx90bbba88d31e8381", "63b3a9188d3dfb3acf5c63c28ec1b050");
+//app.coreApi = core;
 
 
 // error handler
