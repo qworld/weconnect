@@ -27,7 +27,7 @@ global.ApiPrefix = "https://api.weixin.qq.com/cgi-bin/";
 //app.coreApi = weconnect_core.createService("wx90bbba88d31e8381", "63b3a9188d3dfb3acf5c63c28ec1b050");
 
 //const core = new weconnect_core("wx90bbba88d31e8381", "63b3a9188d3dfb3acf5c63c28ec1b050");
-//app.coreApi = core;
+app.coreApi = weconnect_core;
 
 
 // error handler
