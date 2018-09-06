@@ -59,9 +59,9 @@ router.post('/', async (ctx, next) => {
         });
         
         //logger.info(xml);
-        //let jsonMsg = await ctx.app.coreApi.message.xmlToJson(xml);
-        const msg = await ctx.app.coreApi.getModule('message');
-        let jsonMsg = await msg.xmlToJson(xml);
+        let jsonMsg = await ctx.app.coreApi.message.xmlToJson(xml);
+        // const msg = await ctx.app.coreApi.getModule('message');
+        // let jsonMsg = await msg.xmlToJson(xml);
         //logger.info(jsonMsg);
         await parseMsg(ctx, jsonMsg);
         ctx.body = 'success';
@@ -103,8 +103,7 @@ async function parseMsg(ctx, msg){
         case "shortvideo":
         case "location":
         case "link":
-            const message = await ctx.app.coreApi.getModule('message');
-            await message.sendText(openId, "请稍后，马上回复你哈...");
+            await ctx.app.coreApi.message.sendText(openId, "请稍后，马上回复你哈...");
             break;
         default:
             break;
