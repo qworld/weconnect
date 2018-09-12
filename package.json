@@ -22,13 +22,13 @@
     "koa-static": "^5.0.0",
     "koa-views": "latest",
     "log4js": "^3.0.5",
-    "mongoose": "^5.2.13",
+    "mongoose": "^5.2.14",
     "nunjucks": "latest",
     "raw-body": "^2.3.3",
     "weconnect_core": "file:../weconnect_core/"
   },
   "devDependencies": {
-    "jest": "^23.5.0",
+    "jest": "^23.6.0",
     "nodemon": "^1.18.4"
   }
 }

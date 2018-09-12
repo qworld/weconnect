@@ -103,12 +103,16 @@ async function parseMsg(ctx, msg){
         case "shortvideo":
         case "location":
         case "link":
+        case "event":
             await ctx.app.coreApi.message.sendText(openId, "请稍后，马上回复你哈...");
             break;
         default:
+            ctx.app.coreApi.message.sendText(openId, "Welcome to the endless world...");
             break;
     }
-
 }
+
+
+
 
 module.exports = router;

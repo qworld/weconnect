@@ -12,7 +12,7 @@ const bodyparser = require('koa-bodyparser');
 //const koa_logger = require('koa-logger');
 
 //const weconnect_core = require('../weconnect_core/');
-const weconnect_core = require('./routes/core_service');
+const weconnect_core = require('./lib/core_service');
 
 const index = require('./routes/index');
 const tokens = require('./routes/tokens');
