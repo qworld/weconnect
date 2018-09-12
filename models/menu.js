@@ -8,6 +8,6 @@ const fs = require("fs");
 const config_path = global.AppRoot + "/config/menu_list.json";
 
 module.exports.get = async () => {
-    let menu_config = await util.promisify(fs.readFile)(config_path);
+    let menu_config = await util.promisify(fs.readFile)(config_path, 'utf8');
     return menu_config;
 }

@@ -10,11 +10,11 @@ router.get('/', function (ctx, next) {
 });
 
 router.get('/create', async function (ctx, next) {
-    let result = await menuMgr.get();
-    await weconnect_core.menu.addMenu(result);
+    let menus = await menuMgr.get();
+    let result = await weconnect_core.menu.addMenu(menus);
     await ctx.render('common_response', {
         title: 'create menus!',
-        data: result
+        data: JSON.stringify(result)
       }) 
 });
 
