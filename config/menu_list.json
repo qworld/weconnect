@@ -7,12 +7,12 @@
                     "type": "view", 
                     "name": "浏览", 
                     "url": "http://m.jsj.com.cn",
-                    "key": "menu_1_1"
+                    "key": "menu_0_1"
                 }, 
                 {
                     "type": "scancode_push", 
                     "name": "扫码推事件", 
-                    "key": "rselfmenu_1_2"
+                    "key": "rselfmenu_0_2"
                 }
             ]
         }, 
@@ -33,6 +33,11 @@
                     "type": "pic_weixin", 
                     "name": "微信相册发图", 
                     "key": "rselfmenu_1_2"
+                },
+                {
+                    "name": "发送位置", 
+                    "type": "location_select", 
+                    "key": "rselfmenu_1_3"
                 }
             ]
         }

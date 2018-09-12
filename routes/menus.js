@@ -1,6 +1,6 @@
 const router = require('koa-router')();
 const menuMgr = require('../models/menu');
-//const weconnect_api = require('weconnect_api');
+const weconnect_core = require('../lib/core_service');
 
 router.prefix('/menus');
 
@@ -10,7 +10,8 @@ router.get('/', function (ctx, next) {
 });
 
 router.get('/create', async function (ctx, next) {
-    let result = await menuMgr.createMenu();
+    let result = await menuMgr.get();
+    await weconnect_core.menu.addMenu(result);
     await ctx.render('common_response', {
         title: 'create menus!',
         data: result
