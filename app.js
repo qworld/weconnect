@@ -1,7 +1,6 @@
-const log4js = require('log4js');
-log4js.configure('./config/config_log4js.json');
-const infologger = log4js.getLogger("default");
-const errlogger = log4js.getLogger("error");
+'use strict';
+
+const logger = require('./lib/log4js');
 
 const Koa = require('koa');
 const app = new Koa();
@@ -59,11 +58,9 @@ app.use(async (ctx, next) => {
   // x-response-time
   ctx.set('X-Response-Time', `${ms}ms`);
   let msg = `${ctx.method} ${ctx.url} - ${ms}ms`;
-  console.log(msg);
-  infologger.info(msg);
+  //console.log(msg);
+  logger.info(msg);
 });
-
-app.xyz = "13x";
 
 // routes
 app.use(index.routes(), index.allowedMethods());
@@ -76,13 +73,13 @@ app.use(users.routes(), users.allowedMethods());
 
 // error-handling
 app.on('error', (err, ctx) => {
-  console.error('server error', err, ctx);
-  errlogger.error('server error', err, ctx);
+  //console.error('server error', err, ctx);
+  logger.error('server error', err, ctx);
 });
 
 app.on('unhandledRejection', (reason, p) => {
-  console.log('Unhandled Rejection at:', p, 'reason:', reason);
-  errlogger.fatal('Unhandled Rejection at:', p, 'reason:', reason);
+  //console.log('Unhandled Rejection at:', p, 'reason:', reason);
+  logger.fatal('Unhandled Rejection at:', p, 'reason:', reason);
   // application specific logging, throwing an error, or other logic here
 });
 
