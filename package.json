@@ -12,8 +12,8 @@
   "dependencies": {
     "debug": "latest",
     "eslint": "^5.5.0",
-    "fast-xml-parser": "^3.12.0",
-    "koa": "^2.5.2",
+    "fast-xml-parser": "^3.12.5",
+    "koa": "^2.5.3",
     "koa-bodyparser": "latest",
     "koa-json": "latest",
     "koa-logger": "latest",
