@@ -21,4 +21,8 @@ module.exports.get = async () => {
     return menu_config;
 }
 
-let m = new menu_model()
+let m = new menu_model();
+
+module.exports.create = async (doc) => {
+    return await menu_model.create(doc);
+}
