@@ -49,7 +49,7 @@ module.exports.handlePushEvent = async (msg) => {
     // uppercase to avoid mismatch
     let event = msg.Event.trim().toUpperCase();
     let eventKey = msg.EventKey ? msg.EventKey : '';
-    switch(event){
+    switch (event) {
         case "SUBSCRIBE":
             eventKey ? await subscribeByScanQR(msg) : await subscribe(msg);
             break;
