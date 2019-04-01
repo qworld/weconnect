@@ -1,9 +1,13 @@
 {
     "appenders": {
-        "stdout": { "type": "stdout" },
-        "console": { "type": "console" },
-        "file": { 
-            "type": "file", 
+        "stdout": {
+            "type": "stdout"
+        },
+        "console": {
+            "type": "console"
+        },
+        "file": {
+            "type": "file",
             "filename": "../logs/weconnect.log",
             "backups": 5,
             "keepFileExt": "true"
@@ -12,7 +16,9 @@
             "type": "dateFile",
             "filename": "../logs/weconnect.log",
             "pattern": ".yyyy-MM-dd-hh",
-            "layout": { "type": "colored" },
+            "layout": {
+                "type": "colored"
+            },
             "alwaysIncludePattern": "true",
             "daysToKeep": "2",
             "keepFileExt": "true"
@@ -21,24 +27,35 @@
             "type": "dateFile",
             "filename": "../logs/weconnect_errors.log",
             "pattern": ".yyyy-MM-dd-hh",
-            "layout": { "type": "colored" },
+            "layout": {
+                "type": "colored"
+            },
             "alwaysIncludePattern": "true",
             "daysToKeep": "2",
             "keepFileExt": "true"
         }
     },
     "categories": {
-        "default": { 
-            "appenders": [ "stdout", "dateFile" ], 
-            "level": "ALL" 
+        "default": {
+            "appenders": [
+                "stdout",
+                "dateFile"
+            ],
+            "level": "ALL"
         },
         "all": {
-            "appenders": [ "stdout", "dateFile" ], 
-            "level": "ALL" 
+            "appenders": [
+                "stdout",
+                "dateFile"
+            ],
+            "level": "ALL"
         },
         "error": {
-            "appenders": [ "stdout", "dateFile_error" ], 
-            "level": "DEBUG" 
+            "appenders": [
+                "stdout",
+                "dateFile_error"
+            ],
+            "level": "DEBUG"
         }
     }
 }
