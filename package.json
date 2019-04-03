@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "debug": "latest",
-    "eslint": "latest",
+    "eslint": "^5.16.0",
     "fast-xml-parser": "latest",
     "koa": "latest",
     "koa-bodyparser": "latest",
@@ -20,7 +20,7 @@
     "koa-onerror": "latest",
     "koa-router": "latest",
     "koa-static": "latest",
-    "koa-views": "latest",
+    "koa-views": "^6.2.0",
     "log4js": "latest",
     "mongoose": "latest",
     "nunjucks": "latest",

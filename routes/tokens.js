@@ -1,57 +1,11 @@
 const router = require('koa-router')();
 //const weconnect_core = require('weconnect_core');
 const utils = require("../lib/util");
-//const weApi = require('co-wechat-api');
-//const mongoose = require('mongoose');
 
 //const core = new weconnect_core( { "init_mode":"static", "appid":"wx90bbba88d31e8381", "secret":"63b3a9188d3dfb3acf5c63c28ec1b050" } );
 
 
 router.prefix('/tokens');
-/*
-class z{
-    constructor(id,st){
-        this.id = id;
-        this.st = st;
-    }
-
-    getToken(){
-        return this.id + this.st;
-    }
-};
-
-class m extends z{
-    constructor(id, st){
-        super(id,st);
-    }
-
-    get_token(){
-        return super.getToken();
-    }
-    
-    get menu(){
-        let menu = require('../lib/apis');
-        menu.token = 'abc....*';
-        return menu;
-    }
-}
-*/
-
-function abx(data){
-    console.log("daaa");
-    yzx(data);
-    return "data is omit";
-}
-
-function yzx(data){
-    console.log("yzx");
-    if(data){
-        console.log("data appears");
-    } else{
-        console.log("data disappears");
-    }
-    return "this is yzx";
-}
 
 router.get('/', async function (ctx, next) {
     ctx.body = 'this is a token response';
@@ -64,7 +18,7 @@ router.get('/get', async function (ctx, next) {
     await ctx.render('common_response', {
         title: 'get token!',
         data: JSON.stringify(token)
-      })   
+    })
 });
 
 router.get('/testcache', async function (ctx, next) {
@@ -85,7 +39,7 @@ router.get('/testmenu', async function (ctx, next) {
 
 router.get('/getmenu', async function (ctx, next) {
     let menuMgr = await ctx.app.coreApi.getModule("menu");
-    //menuMgr.getRequestUrl("head", "12345"); 
+    //menuMgr.getRequestUrl("head", "12345");
     let res = await menuMgr.getCurrentMenuInfo();
     ctx.body = 'the result is : ' + JSON.stringify(res);
 });
