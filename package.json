@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "debug": "latest",
-    "eslint": "^5.16.0",
+    "eslint": "latest",
     "fast-xml-parser": "latest",
     "koa": "latest",
     "koa-bodyparser": "latest",
@@ -20,7 +20,7 @@
     "koa-onerror": "latest",
     "koa-router": "latest",
     "koa-static": "latest",
-    "koa-views": "^6.2.0",
+    "koa-views": "latest",
     "log4js": "latest",
     "mongoose": "latest",
     "nunjucks": "latest",
@@ -28,8 +28,8 @@
     "weconnect-core": "file:../weconnect-core/"
   },
   "devDependencies": {
-    "eslint-plugin-vue": "^5.2.2",
-    "jest": "^23.6.0",
-    "nodemon": "^1.18.10"
+    "eslint-plugin-vue": "latest",
+    "jest": "latest",
+    "nodemon": "latest"
   }
 }
