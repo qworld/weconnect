@@ -21,8 +21,8 @@
     "koa-router": "latest",
     "koa-static": "latest",
     "koa-views": "latest",
-    "log4js": "latest",
-    "mongoose": "latest",
+    "log4js": "^4.3.1",
+    "mongoose": "^5.6.0",
     "nunjucks": "latest",
     "raw-body": "latest",
     "weconnect-core": "file:../weconnect-core/"
